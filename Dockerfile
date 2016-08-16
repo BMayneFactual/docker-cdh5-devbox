@@ -18,6 +18,7 @@ ADD docker.sh /etc/service/docker/run
 #new things
 ADD https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 /bin/jq
 RUN chmod +x /bin/jq
+RUN apt-get install -y htop mosh
 
 #cleanup
 RUN apt-get clean
