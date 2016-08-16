@@ -15,6 +15,10 @@ RUN apt-get update && apt-get install -y byobu docker-engine python3-pip bash-co
 RUN mkdir -p /etc/service/docker
 ADD docker.sh /etc/service/docker/run
 
+#new things
+ADD https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 /bin/jq
+RUN chmod +x /bin/jq
+
 #cleanup
 RUN apt-get clean
 RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
