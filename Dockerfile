@@ -18,13 +18,18 @@ ADD docker.sh /etc/service/docker/run
 #new things
 ADD https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 /bin/jq
 RUN chmod +x /bin/jq
-RUN apt-get install -y htop mosh
+RUN apt-get install -y htop mosh silversearcher-ag
 RUN echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 642AC823
 RUN apt-get update
 RUN apt-get install -y sbt
-RUN apt-get install -y r-base-core
+
+# DQM 2
+RUN apt-get install -y r-base-core 
 RUN apt-get install -y libcurl4-openssl-dev
+
+# Existence
+RUN apt-get install -y libfreetype6-dev liblas-dev liblapack-dev gfortran
 
 #cleanup
 RUN apt-get clean
