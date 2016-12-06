@@ -15,8 +15,11 @@ RUN apt-get update && apt-get install -y sudo byobu docker-engine python3-pip ba
 RUN mkdir -p /etc/service/docker
 ADD docker.sh /etc/service/docker/run
 
-#new things
+# new things
 RUN apt-get install -y htop mosh silversearcher-ag jq
+
+# for postgres gem
+RUN apt-get install -y libpq-dev
 
 # dqm3
 RUN echo "deb https://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list
